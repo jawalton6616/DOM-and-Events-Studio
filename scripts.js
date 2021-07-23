@@ -56,33 +56,29 @@ window.addEventListener("load", (event) => {
   let left = document.getElementById("left");
   let rocket = document.querySelector("#rocket");
 
-  //   let currentPosition = 0;
-  getCurrentPosition = function (btn) {
-    let currentPosition = btn.style.transform;
-    return currentPosition;
-  };
+  rocket.style.bottom = 0;
+  rocket.style.position = "absolute";
+
+  let initialTranslate = 0;
   let translateAmmount = 10;
 
   up.addEventListener("click", function () {
-    let currentPosition = getCurrentPosition(up);
-    currentPosition += translateAmmount;
-    rocket.style.transform = "translateY(-" + currentPosition + "px)";
+    initialTranslate += translateAmmount;
+    rocket.style.transform = "translateY(-" + initialTranslate + "px)";
     spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) + 10000;
   });
+
   down.addEventListener("click", function () {
-    let currentPosition = getCurrentPosition(up);
-    currentPosition += translateAmmount;
-    rocket.style.transform = "translateY(" + currentPosition + "px)";
+    initialTranslate += translateAmmount;
+    rocket.style.transform = "translateY(" + initialTranslate + "px)";
     spaceShuttleHeight.innerHTML = Number(spaceShuttleHeight.innerHTML) - 10000;
   });
   right.addEventListener("click", function () {
-    let currentPosition = getCurrentPosition(up);
-    currentPosition += translateAmmount;
-    rocket.style.transform = "translateX(" + currentPosition + "px)";
+    initialTranslate += translateAmmount;
+    rocket.style.transform = "translateX(" + initialTranslate + "px)";
   });
   left.addEventListener("click", function () {
-    let currentPosition = getCurrentPosition(up);
-    currentPosition += translateAmmount;
-    rocket.style.transform = "translateX(-" + currentPosition + "px)";
+    initialTranslate += translateAmmount;
+    rocket.style.transform = "translateX(-" + initialTranslate + "px)";
   });
 });
